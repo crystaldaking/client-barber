@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Program;
 use Illuminate\Http\Request;
 
-class QueneController extends Controller
+class ProgramController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class QueneController extends Controller
      */
     public function index()
     {
-        return view('quene.index',['users' => User::all()]);
+        //
     }
 
     /**
@@ -41,10 +41,10 @@ class QueneController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Program $program)
     {
         //
     }
@@ -52,10 +52,10 @@ class QueneController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Program $program)
     {
         //
     }
@@ -64,10 +64,10 @@ class QueneController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Program $program)
     {
         //
     }
@@ -75,10 +75,10 @@ class QueneController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Program  $program
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Program $program)
     {
         //
     }

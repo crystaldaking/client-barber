@@ -17,6 +17,6 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::factory(['phone' => '+375293164122', 'password' => Hash::make('secret')
-            ,'email' => 'crystal@crystalapps.by', 'program' => 'Basic'])->create();
+            ,'email' => 'crystal@crystalapps.by'])->create();
     }
 }

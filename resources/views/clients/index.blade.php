@@ -58,9 +58,11 @@
                                             @endforeach
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
+                                            @foreach($user->program as $program)
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-red-800">
-                                            {{$user->program}}
+                                            {{$program->name}}
                                         </span>
+                                            @endforeach
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <a href="{{route('users.edit',$user->id)}}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
