@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('program')->default('Basic'); //gold, platinum
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();

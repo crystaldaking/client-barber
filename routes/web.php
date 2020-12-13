@@ -17,9 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/quene', function () {
+    return view('quene.index');
+});
 
 Route::resource('quene',\App\Http\Controllers\QueneController::class);
-
+Route::resource('clients',\App\Http\Controllers\ClientsController::class);
+Route::resource('users',\App\Http\Controllers\UserController::class);
