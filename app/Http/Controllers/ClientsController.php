@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ClientsController extends Controller
@@ -13,7 +14,11 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::whereHas('roles', function ($q){
+            $q->where('name','like','%Client%');
+        })->get();
+
+        return view('clients.index',['users' => $users]);
     }
 
     /**
