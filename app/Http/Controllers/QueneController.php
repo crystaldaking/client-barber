@@ -14,7 +14,19 @@ class QueneController extends Controller
      */
     public function index()
     {
-        return view('quene.index',['users' => User::all()]);
+        /*$users = User::get()->sortBy(function ($query){
+           return $query->programs->get(0)->rank;
+        })-*/
+
+        $users = User::whereHas('roles', function ($q){
+            $q->where('name','like','%Client%');
+        })->get();
+
+        $users = $users->sortByDesc(function ($q){
+            return $q->programs->first()->rank;
+        });
+
+        return view('quene.index',['users' => $users]);
     }
 
     /**

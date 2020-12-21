@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Users list') }}
+            {{ __('Clients list') }}
         </h2>
     </x-slot>
 
@@ -58,7 +58,7 @@
                                             @endforeach
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            @foreach($user->program as $program)
+                                            @foreach($user->programs as $program)
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-red-800">
                                             {{$program->name}}
                                         </span>

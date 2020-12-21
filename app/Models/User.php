@@ -114,7 +114,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
-    public function program()
+    public function programs()
     {
         return $this->belongsToMany(Program::class);
     }

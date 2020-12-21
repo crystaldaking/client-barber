@@ -26,6 +26,8 @@ class Program extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['id','name','rank'];
+
     public function user()
     {
         return $this->belongsToMany(User::class);
