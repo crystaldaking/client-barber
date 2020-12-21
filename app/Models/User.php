@@ -116,6 +116,6 @@ class User extends Authenticatable
 
     public function programs()
     {
-        return $this->belongsToMany(Program::class);
+        return $this->belongsToMany(Program::class)->withTimestamps();
     }
 }

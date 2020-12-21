@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\Program;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
@@ -77,7 +78,14 @@ class ClientsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $client = User::find($id);
+        $client->programs()->sync($request->programs);
+
+        //$client->programs()->first()->updated_at = Carbon::createFromFormat('Y-m-d',$request->updated_at);
+        $client->program_date = Carbon::createFromFormat('Y-m-d',$request->program_date);
+        $client->save();
+
+        return redirect()->route('clients.index');
     }
 
     /**

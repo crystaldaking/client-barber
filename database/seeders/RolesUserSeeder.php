@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Program;
 use App\Models\Role;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class RolesUserSeeder extends Seeder
@@ -24,7 +25,7 @@ class RolesUserSeeder extends Seeder
             $role = Role::where('name','Client')->first();
             $program = Program::inRandomOrder()->first();
             $client->roles()->attach($role);
-            $client->program()->attach($program);
+            $client->programs()->attach($program);
         });
     }
 }
