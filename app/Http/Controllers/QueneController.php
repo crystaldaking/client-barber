@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Program;
+use App\Models\Quene;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -14,19 +16,42 @@ class QueneController extends Controller
      */
     public function index()
     {
-        /*$users = User::get()->sortBy(function ($query){
-           return $query->programs->get(0)->rank;
-        })-*/
-
-        $users = User::whereHas('roles', function ($q){
+        /*$users = User::whereHas('roles', function ($q){
             $q->where('name','like','%Client%');
         })->get();
 
         $users = $users->sortByDesc(function ($q){
             return $q->programs->first()->rank;
-        });
+        });*/
 
-        return view('quene.index',['users' => $users]);
+        $user = \Auth::user();
+        if ($user->roles->first() == 'Client') {
+
+            $program_date = $user->program_date;
+            $current_date = now();
+
+            if ($current_date->gt($program_date)) {
+                $basic = Program::where('name', 'like', '%Basic%')->get();
+                $user->programs()->sync($basic);
+                $user->save();
+            }
+
+            $math = ['user_id' => $user->id];
+
+            if (Quene::where($math)->get()->isEmpty()) {
+                $quene = new Quene();
+                $quene->user()->associate($user);
+                $quene->status = 'New';
+                $quene->save();
+            }
+        }
+
+        /* TODO: add filter */
+        $quenes = Quene::with('user.programs')->get();
+        $quenes = $quenes->sortByDesc(function ($q){
+            return $q->first()->rank;
+        });
+        return view('quene.index',['quenes' => $quenes]);
     }
 
     /**

@@ -27,12 +27,40 @@
                             </div>
                         </div>
 
-                        <div class="shadow overflow-hidden sm:rounded-md">
-                            <div class="px-4 py-5 bg-white sm:p-6">
-                                <div class="mt-4">
-                                    <span class="text-gray-700">Date of program</span>
-                                    <div class="mt-2">
-                                        <input type="date" name="program_date" value="{{\Carbon\Carbon::parse($client->program_date)->format('Y-m-d')}}">
+                        <div class="mt-4">
+                            <div class="shadow overflow-hidden sm:rounded-md">
+                                <div class="px-4 py-5 bg-white sm:p-6">
+                                    <div class="mt-4">
+                                        <span class="text-gray-700">Name</span>
+                                        <div class="mt-2">
+                                            <input class="form-input mt-1 block w-full" type="text" name="name" value="{{$client->name}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <div class="shadow overflow-hidden sm:rounded-md">
+                                <div class="px-4 py-5 bg-white sm:p-6">
+                                    <div class="mt-4">
+                                        <span class="text-gray-700">Phone</span>
+                                        <div class="mt-2">
+                                            <input class="form-input mt-1 block w-full" type="text" name="phone" value="{{$client->phone}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <div class="shadow overflow-hidden sm:rounded-md">
+                                <div class="px-4 py-5 bg-white sm:p-6">
+                                    <div class="mt-4">
+                                        <span class="text-gray-700">Date of program</span>
+                                        <div class="mt-2">
+                                            <input type="date" name="program_date" value="{{\Carbon\Carbon::parse($client->program_date)->format('Y-m-d')}}">
+                                        </div>
                                     </div>
                                 </div>
                             </div>

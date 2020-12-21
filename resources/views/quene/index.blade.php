@@ -30,35 +30,35 @@
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
-                                @foreach($users as $user)
+                                @foreach($quenes as $user)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10">
-                                                    <img class="h-10 w-10 rounded-full" src="{{$user->profile_photo_url}}" alt="">
+                                                    <img class="h-10 w-10 rounded-full" src="{{$user->user->profile_photo_url}}" alt="">
                                                 </div>
                                                 <div class="ml-4">
                                                     <div class="text-sm font-medium text-gray-900">
-                                                        {{$user->name}}
+                                                        {{$user->user->name}}
                                                     </div>
                                                     <div class="text-sm text-gray-500">
-                                                        {{{$user->phone}}}
+                                                        {{{$user->user->phone}}}
                                                     </div>
                                                     <div class="text-sm text-gray-500">
-                                                        {{{$user->email}}}
+                                                        {{{$user->user->email}}}
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            @foreach($user->roles as $role)
+                                            @foreach($user->user->roles as $role)
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                     {{$role->name}}
                                                 </span>
                                             @endforeach
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            @foreach($user->programs as $program)
+                                            @foreach($user->user->programs as $program)
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-red-800">
                                             {{$program->name}}
                                         </span>
