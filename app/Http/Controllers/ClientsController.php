@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
+use App\Models\Program;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
@@ -62,7 +64,8 @@ class ClientsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $client = User::find($id);
+        return view('clients.edit',['client' => $client,'programs' => Program::all()]);
     }
 
     /**
